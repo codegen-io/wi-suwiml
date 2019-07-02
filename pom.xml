@@ -4,7 +4,7 @@
 
   <groupId>io.codegen.wi.suwiml</groupId>
   <artifactId>wi-suwiml</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
@@ -36,7 +36,7 @@
     <connection>scm:git:git://github.com/codegen-io/wi-suwiml.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/codegen-io/wi-suwiml.git</developerConnection>
     <url>https://github.com/codegen-io/wi-suwiml/tree/master</url>
-    <tag>HEAD</tag>
+    <tag>v0.0.1</tag>
   </scm>
 
   <properties>
