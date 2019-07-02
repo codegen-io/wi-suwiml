@@ -1,0 +1,345 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.codegen.wi.suwiml.proto.uwvdossierinkomsten_v0500";
+option java_outer_classname = "UWVDossierInkomsten_v0500";
+
+package io.codegen.wi.suwiml.proto.uwvdossierinkomsten_v0500;
+
+import "google/api/annotations.proto";
+
+// Service definition for UWVDossierInkomsten-v0500
+service UWVDossierInkomsten_v0500Service {
+
+  // Operation {http://bkwi.nl/SuwiML/Diensten/UWVDossierInkomsten/v0500}UWVPersoonsIkvInfo
+  rpc UWVPersoonsIkvInfoRequest (UWVPersoonsIkvInfo) returns (UWVPersoonsIkvInfoResponse) {
+    option (google.api.http) = {
+      post: "/UWVDossierInkomsten-v0500/UWVPersoonsIkvInfo"
+    };
+  }
+
+}
+
+message UWVPersoonsIkvInfo { // QName {http://bkwi.nl/SuwiML/Diensten/UWVDossierInkomsten/v0500}UWVPersoonsIkvInfo
+  string burgerservicenr = 1; // QName Burgerservicenr
+  PeriodeGegevensvraagIko periode_gegevensvraag_iko = 2; // QName PeriodeGegevensvraagIko
+
+  message PeriodeGegevensvraagIko { // QName PeriodeGegevensvraagIko
+    string dat_b_periode = 1; // QName DatBPeriode
+    string dat_e_periode = 2; // QName DatEPeriode
+  }
+}
+
+message UWVPersoonsIkvInfoResponse { // QName {http://bkwi.nl/SuwiML/Diensten/UWVDossierInkomsten/v0500}UWVPersoonsIkvInfoResponse
+  ClientSuwi client_suwi = 1; // QName ClientSuwi
+  PeriodeGegevensleveringIko periode_gegevenslevering_iko = 2; // QName PeriodeGegevensleveringIko
+  FWI f_w_i = 3; // QName {http://bkwi.nl/SuwiML/FWI/v0203}FWI
+  bool niets_gevonden = 4; // QName {http://bkwi.nl/SuwiML/FWI/v0203}NietsGevonden
+
+  message ClientSuwi { // QName ClientSuwi
+    string burgerservicenr = 1; // QName Burgerservicenr
+    repeated Inkomstenverhouding inkomstenverhouding = 2; // QName Inkomstenverhouding
+
+    message Inkomstenverhouding { // QName Inkomstenverhouding
+      string volgnr_ikv = 1; // QName VolgnrIkv
+      string aanduiding_ikv_werkgever = 2; // QName AanduidingIkvWerkgever
+      string dat_b_ikv = 3; // QName DatBIkv
+      string dat_e_ikv = 4; // QName DatEIkv
+      string personeelsnr = 5; // QName Personeelsnr
+      string cd_reden_e_ikv_flexwerker = 6; // QName CdRedenEIkvFlexwerker
+      PersoonLoonaangifte persoon_loonaangifte = 7; // QName PersoonLoonaangifte
+      AdministratieveEenheid administratieve_eenheid = 8; // QName AdministratieveEenheid
+      repeated Inkomstenperiode inkomstenperiode = 9; // QName Inkomstenperiode
+      repeated SectorRisicogroepType sector_risicogroep_ikv = 10; // QName SectorRisicogroepIkv
+      repeated Inkomstenopgave inkomstenopgave = 11; // QName Inkomstenopgave
+
+      message PersoonLoonaangifte { // QName PersoonLoonaangifte
+        string voorletters = 1; // QName Voorletters
+        string voorvoegsel = 2; // QName Voorvoegsel
+        string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+        string geslacht = 4; // QName Geslacht
+        string geboortedat = 5; // QName Geboortedat
+        repeated FeitelijkAdresLoonaangifte feitelijk_adres_loonaangifte = 6; // QName FeitelijkAdresLoonaangifte
+        repeated Nationaliteit nationaliteit = 7; // QName Nationaliteit
+
+        message FeitelijkAdresLoonaangifte { // QName FeitelijkAdresLoonaangifte
+          string dat_b_adres = 1; // QName DatBAdres
+          string dat_e_adres = 2; // QName DatEAdres
+          StraatadresType straatadres = 3; // QName Straatadres
+          StraatadresBuitenlandType straatadres_buitenland = 4; // QName StraatadresBuitenland
+        }
+
+        message Nationaliteit { // QName Nationaliteit
+          string cd_nationaliteit = 1; // QName CdNationaliteit
+          string dat_b_nationaliteit = 2; // QName DatBNationaliteit
+          string dat_e_nationaliteit = 3; // QName DatENationaliteit
+        }
+      }
+
+      message AdministratieveEenheid { // QName AdministratieveEenheid
+        string naam_administratieve_eenheid = 1; // QName NaamAdministratieveEenheid
+        string loonheffingennr = 2; // QName Loonheffingennr
+        string dat_b_administratieve_eenheid = 3; // QName DatBAdministratieveEenheid
+        string dat_e_administratieve_eenheid = 4; // QName DatEAdministratieveEenheid
+        PersoonAdministratieveEenheid persoon_administratieve_eenheid = 5; // QName PersoonAdministratieveEenheid
+        RechtspersoonAdministratieveEenh rechtspersoon_administratieve_eenh = 6; // QName RechtspersoonAdministratieveEenh
+        repeated AdresType feitelijk_adres_aeh = 7; // QName FeitelijkAdresAeh
+        repeated AdresType correspondentieadres_aeh = 8; // QName CorrespondentieadresAeh
+        repeated FaillissementSurseance faillissement_surseance = 9; // QName FaillissementSurseance
+        repeated Gemoedsbezwaardheid gemoedsbezwaardheid = 10; // QName Gemoedsbezwaardheid
+        repeated Afdrachtplicht afdrachtplicht = 11; // QName Afdrachtplicht
+        repeated Eigenrisicodrager eigenrisicodrager = 12; // QName Eigenrisicodrager
+        repeated SectorRisicogroepType sector_risicogroep_aeh = 13; // QName SectorRisicogroepAeh
+        repeated VoortzettingsrelatieType voortzettingsrelatie_opvolger = 14; // QName VoortzettingsrelatieOpvolger
+        repeated VoortzettingsrelatieType voortzettingsrelatie_voorganger = 15; // QName VoortzettingsrelatieVoorganger
+        repeated PremiepercentageIndividueel premiepercentage_individueel = 16; // QName PremiepercentageIndividueel
+
+        message PersoonAdministratieveEenheid { // QName PersoonAdministratieveEenheid
+          string burgerservicenr = 1; // QName Burgerservicenr
+          string voornamen = 2; // QName Voornamen
+          string voorvoegsel = 3; // QName Voorvoegsel
+          string significant_deel_van_de_achternaam = 4; // QName SignificantDeelVanDeAchternaam
+          repeated AdresType feitelijk_adres_persoon_aeh = 5; // QName FeitelijkAdresPersoonAeh
+          repeated AdresType correspondentieadres_persoon_aeh = 6; // QName CorrespondentieadresPersoonAeh
+        }
+
+        message RechtspersoonAdministratieveEenh { // QName RechtspersoonAdministratieveEenh
+          string fi_nr = 1; // QName FiNr
+          string naam_rechtspersoon = 2; // QName NaamRechtspersoon
+          string cd_rechtsvorm = 3; // QName CdRechtsvorm
+        }
+
+        message FaillissementSurseance { // QName FaillissementSurseance
+          string cd_faillissement_surseance = 1; // QName CdFaillissementSurseance
+          string cd_reden_e_faillissement_surseance = 2; // QName CdRedenEFaillissementSurseance
+          string dat_b_faillissement_surseance = 3; // QName DatBFaillissementSurseance
+          string dat_e_faillissement_surseance = 4; // QName DatEFaillissementSurseance
+        }
+
+        message Gemoedsbezwaardheid { // QName Gemoedsbezwaardheid
+          string dat_b_gemoedsbezwaardheid = 1; // QName DatBGemoedsbezwaardheid
+          string dat_e_gemoedsbezwaardheid = 2; // QName DatEGemoedsbezwaardheid
+          SzWetType sz_wet = 3; // QName SzWet
+        }
+
+        message Afdrachtplicht { // QName Afdrachtplicht
+          string dat_b_afdrachtplicht = 1; // QName DatBAfdrachtplicht
+          string dat_e_afdrachtplicht = 2; // QName DatEAfdrachtplicht
+        }
+
+        message Eigenrisicodrager { // QName Eigenrisicodrager
+          string dat_b_eigenrisicodrager = 1; // QName DatBEigenrisicodrager
+          string dat_e_eigenrisicodrager = 2; // QName DatEEigenrisicodrager
+          SzWetType sz_wet = 3; // QName SzWet
+        }
+
+        message PremiepercentageIndividueel { // QName PremiepercentageIndividueel
+          StandaardPercType premiepercentage_individueel = 1; // QName PremiepercentageIndividueel
+          string dat_b_premiepercentage_individueel = 2; // QName DatBPremiepercentageIndividueel
+          string dat_e_premiepercentage_individueel = 3; // QName DatEPremiepercentageIndividueel
+          SzWetType sz_wet = 4; // QName SzWet
+        }
+      }
+
+      message Inkomstenperiode { // QName Inkomstenperiode
+        string dat_b_ikp = 1; // QName DatBIkp
+        string dat_e_ikp = 2; // QName DatEIkp
+        string cd_srt_ikv = 3; // QName CdSrtIkv
+        string cd_type_arbeidscontract = 4; // QName CdTypeArbeidscontract
+        string cd_invloed_verzekeringsplicht = 5; // QName CdInvloedVerzekeringsplicht
+        string ind_loonheffingskorting_toegepast = 6; // QName IndLoonheffingskortingToegepast
+        string ind_regelmatig_arbeidspatroon = 7; // QName IndRegelmatigArbeidspatroon
+        string ind_verzekerd_wao_wia = 8; // QName IndVerzekerdWaoWia
+        string ind_verzekerd_ww = 9; // QName IndVerzekerdWw
+        string ind_verzekerd_zw = 10; // QName IndVerzekerdZw
+        string cd_verzekeringssituatie_zvw = 11; // QName CdVerzekeringssituatieZvw
+        string ind_vervoer_vanwege_de_ihp = 12; // QName IndVervoerVanwegeDeIhp
+        string ind_personeelslening_niet_in_loon = 13; // QName IndPersoneelsleningNietInLoon
+        string ind_loon_is_mede_aow_aio_alleenstaande = 14; // QName IndLoonIsMedeAowAioAlleenstaande
+        string ind_loon_inclusief_wajong_uitkering = 15; // QName IndLoonInclusiefWajongUitkering
+        string ind_vakantiebonnen_toegepast = 16; // QName IndVakantiebonnenToegepast
+        string ind_aanvulling_op_uitkering = 17; // QName IndAanvullingOpUitkering
+        string cd_aard_ikv = 18; // QName CdAardIkv
+        string cd_premiekorting = 19; // QName CdPremiekorting
+        string ind_premiekorting_agh_wn = 20; // QName IndPremiekortingAghWn
+        string ind_premiekorting_in_dienst_nemen_agh_wn = 21; // QName IndPremiekortingInDienstNemenAghWn
+        string ind_premiekorting_dlgrp_banenafsprk_schlblm = 22; // QName IndPremiekortingDlgrpBanenafsprkSchlblm
+        string ind_premiekorting_herplaatsen_agh_wn = 23; // QName IndPremiekortingHerplaatsenAghWn
+        string ind_premiekorting_oudere_werknemer = 24; // QName IndPremiekortingOudereWerknemer
+        string ind_premiekorting_oudere_wn = 25; // QName IndPremiekortingOudereWn
+        string ind_premiekorting_jongere_wn = 26; // QName IndPremiekortingJongereWn
+        string ind_aanvraag_lkv_oudere_wn = 27; // QName IndAanvraagLkvOudereWn
+        string ind_aanvrg_lkv_dlgrp_banenafsprk_schlblm = 28; // QName IndAanvrgLkvDlgrpBanenafsprkSchlblm
+        string ind_aanvraag_lkv_herplaatsen_agh_wn = 29; // QName IndAanvraagLkvHerplaatsenAghWn
+        string ind_aanvraag_lkv_agh_wn = 30; // QName IndAanvraagLkvAghWn
+        string ind_wachtgeld_oude_regeling = 31; // QName IndWachtgeldOudeRegeling
+        string ind_premievrijstelling_marg_arbeid = 32; // QName IndPremievrijstellingMargArbeid
+        string cd_cao = 33; // QName CdCao
+        string cd_fase_indeling_wfz = 34; // QName CdFaseIndelingWfz
+        string cd_reden_geen_bijtelling_auto = 35; // QName CdRedenGeenBijtellingAuto
+        string cd_incid_inkomstenvermindering = 36; // QName CdIncidInkomstenvermindering
+        string ind_tijdelijke_heffingskorting = 37; // QName IndTijdelijkeHeffingskorting
+        string cd_loonbelastingtabel_bd = 38; // QName CdLoonbelastingtabelBd
+      }
+
+      message Inkomstenopgave { // QName Inkomstenopgave
+        string dat_b_iko = 1; // QName DatBIko
+        string dat_e_iko = 2; // QName DatEIko
+        string aant_sv_dagen_iko = 3; // QName AantSvDagenIko
+        string aant_verloonde_uren_iko = 4; // QName AantVerloondeUrenIko
+        string aant_contracturen_per_week = 5; // QName AantContracturenPerWeek
+        StandaardBedrType bedr_brutoloon_sv = 6; // QName BedrBrutoloonSv
+        StandaardBedrType bedr_loon_lb_premie_volksverz = 7; // QName BedrLoonLbPremieVolksverz
+        StandaardBedrType bedr_ingehouden_lb_premie_volksverz = 8; // QName BedrIngehoudenLbPremieVolksverz
+        StandaardBedrType bedr_vakantietoeslag = 9; // QName BedrVakantietoeslag
+        StandaardBedrType bedr_opgb_recht_vakantietoeslag = 10; // QName BedrOpgbRechtVakantietoeslag
+        StandaardBedrType bedr_extra_prd_salaris = 11; // QName BedrExtraPrdSalaris
+        StandaardBedrType bedr_opgb_recht_extra_prd_salaris = 12; // QName BedrOpgbRechtExtraPrdSalaris
+        StandaardBedrType bedr_verstrekte_aanv_op_uitk_wnverz = 13; // QName BedrVerstrekteAanvOpUitkWnverz
+        StandaardBedrType bedr_verrekende_arbeidskorting = 14; // QName BedrVerrekendeArbeidskorting
+        StandaardBedrType bedr_gespaard_levensloopregeling = 15; // QName BedrGespaardLevensloopregeling
+        StandaardBedrType bedr_levensloopverlkort_toegepast = 16; // QName BedrLevensloopverlkortToegepast
+        StandaardBedrType bedr_wgbijdrage_kinderopvang = 17; // QName BedrWgbijdrageKinderopvang
+        StandaardBedrType bedr_vergoeding_reiskosten_onbelast = 18; // QName BedrVergoedingReiskostenOnbelast
+        StandaardBedrType bedr_privegebruik_auto = 19; // QName BedrPrivegebruikAuto
+        StandaardBedrType bedr_wnbijdrage_privegebruik_auto = 20; // QName BedrWnbijdragePrivegebruikAuto
+        StandaardBedrType bedr_genoten_zeedagenaftrek = 21; // QName BedrGenotenZeedagenaftrek
+        StandaardBedrType bedr_in_uitk_begr_bet_alimentatie = 22; // QName BedrInUitkBegrBetAlimentatie
+        StandaardBedrType bedr_rechtstreeks_bet_alimentatie = 23; // QName BedrRechtstreeksBetAlimentatie
+        StandaardBedrType bedr_loon_in_geld = 24; // QName BedrLoonInGeld
+        StandaardBedrType bedr_loon_uit_overwerk = 25; // QName BedrLoonUitOverwerk
+        StandaardBedrType bedr_loon_belast_tab_bijz_beloningen = 26; // QName BedrLoonBelastTabBijzBeloningen
+        StandaardBedrType bedr_premie_ww_awf = 27; // QName BedrPremieWwAwf
+        StandaardBedrType bedr_premieloon_ww_awf = 28; // QName BedrPremieloonWwAwf
+        StandaardBedrType bedr_premie_sectorfonds = 29; // QName BedrPremieSectorfonds
+        StandaardBedrType bedr_premie_ufo = 30; // QName BedrPremieUfo
+        StandaardBedrType bedr_premieloon_ufo = 31; // QName BedrPremieloonUfo
+        StandaardBedrType bedr_ingehouden_bijdrage_zvw = 32; // QName BedrIngehoudenBijdrageZvw
+        StandaardBedrType bedr_vergoeding_zvw = 33; // QName BedrVergoedingZvw
+        StandaardBedrType bedr_pemie_wao_iva_wga = 34; // QName BedrPemieWaoIvaWga
+        StandaardBedrType bedr_premieloon_wao_iva_wga = 35; // QName BedrPremieloonWaoIvaWga
+        StandaardBedrType bedr_premie_wao_wga = 36; // QName BedrPremieWaoWga
+        StandaardBedrType bedr_premieloon_wao_wga = 37; // QName BedrPremieloonWaoWga
+        StandaardBedrType bedr_werkgeversheffing_zvw = 38; // QName BedrWerkgeversheffingZvw
+        StandaardBedrType bedr_niet_in_geld_uitgekeerd_loon = 39; // QName BedrNietInGeldUitgekeerdLoon
+        StandaardBedrType bedr_gedifferentieerde_premie_whk = 40; // QName BedrGedifferentieerdePremieWhk
+        StandaardBedrType bedr_rente_kostenvoordeel_personeelslening = 41; // QName BedrRenteKostenvoordeelPersoneelslening
+        StandaardBedrType bedr_contractloon = 42; // QName BedrContractloon
+        repeated SectorRisicogroepIko sector_risicogroep_iko = 43; // QName SectorRisicogroepIko
+
+        message SectorRisicogroepIko { // QName SectorRisicogroepIko
+          string cd_sector_risicogroep = 1; // QName CdSectorRisicogroep
+          StandaardBedrType bedr_premie_sectorfonds = 2; // QName BedrPremieSectorfonds
+          StandaardBedrType bedr_premieloon_sectorfonds = 3; // QName BedrPremieloonSectorfonds
+          SectorBeroepsEnBedrijfslevenType sector_beroeps_en_bedrijfsleven = 4; // QName SectorBeroepsEnBedrijfsleven
+        }
+      }
+    }
+  }
+
+  message PeriodeGegevensleveringIko { // QName PeriodeGegevensleveringIko
+    string dat_b_periode = 1; // QName DatBPeriode
+    string dat_e_periode = 2; // QName DatEPeriode
+  }
+
+  message FWI { // QName {http://bkwi.nl/SuwiML/FWI/v0203}FWI
+    repeated MeldingType fout = 1; // QName Fout
+    repeated MeldingType waarschuwing = 2; // QName Waarschuwing
+    repeated MeldingType informatie = 3; // QName Informatie
+  }
+}
+
+
+message AdresType {
+  string dat_b_adres = 1; // QName DatBAdres
+  string dat_e_adres = 2; // QName DatEAdres
+  StraatadresType straatadres = 3; // QName Straatadres
+  PostbusadresType postbusadres = 4; // QName Postbusadres
+  StraatadresBuitenlandType straatadres_buitenland = 5; // QName StraatadresBuitenland
+  PostbusadresBuitenlandType postbusadres_buitenland = 6; // QName PostbusadresBuitenland
+}
+
+message BronType {
+  string d_n = 1; // QName DN
+}
+
+message MeldingType {
+  string code = 1; // QName Code
+  string tekst = 2; // QName Tekst
+  repeated string detail = 3; // QName Detail
+  BronType bron = 4; // QName Bron
+}
+
+message PostbusadresBuitenlandType {
+  string locatieoms_buitenland = 1; // QName LocatieomsBuitenland
+  string postcd_buitenland = 2; // QName PostcdBuitenland
+  string woonplaatsnaam_buitenland = 3; // QName WoonplaatsnaamBuitenland
+  string regionaam_buitenland = 4; // QName RegionaamBuitenland
+  string landencd_iso = 5; // QName LandencdIso
+  string landsnaam = 6; // QName Landsnaam
+  string postbusnr_buitenland = 7; // QName PostbusnrBuitenland
+}
+
+message PostbusadresType {
+  string locatieoms = 1; // QName Locatieoms
+  string postcd = 2; // QName Postcd
+  string woonplaatsnaam = 3; // QName Woonplaatsnaam
+  string gemeentenaam = 4; // QName Gemeentenaam
+  string postbusnr = 5; // QName Postbusnr
+}
+
+message SectorBeroepsEnBedrijfslevenType {
+  string cd_sector = 1; // QName CdSector
+}
+
+message SectorRisicogroepType {
+  string cd_sector_risicogroep = 1; // QName CdSectorRisicogroep
+  string dat_b_sector_risicogroep = 2; // QName DatBSectorRisicogroep
+  string dat_e_sector_risicogroep = 3; // QName DatESectorRisicogroep
+  SectorBeroepsEnBedrijfslevenType sector_beroeps_en_bedrijfsleven = 4; // QName SectorBeroepsEnBedrijfsleven
+}
+
+message StandaardBedrType {
+  string cd_munteenheid = 1; // QName CdMunteenheid
+  string cd_positief_negatief = 2; // QName CdPositiefNegatief
+  string waarde_bedr = 3; // QName WaardeBedr
+  string cd_periode_eenheid_geldigheid_bedr = 4; // QName CdPeriodeEenheidGeldigheidBedr
+}
+
+message StandaardPercType {
+  string cd_positief_negatief = 1; // QName CdPositiefNegatief
+  string percentage = 2; // QName Percentage
+}
+
+message StraatadresBuitenlandType {
+  string locatieoms_buitenland = 1; // QName LocatieomsBuitenland
+  string postcd_buitenland = 2; // QName PostcdBuitenland
+  string woonplaatsnaam_buitenland = 3; // QName WoonplaatsnaamBuitenland
+  string regionaam_buitenland = 4; // QName RegionaamBuitenland
+  string landencd_iso = 5; // QName LandencdIso
+  string landsnaam = 6; // QName Landsnaam
+  string straatnaam_buitenland = 7; // QName StraatnaamBuitenland
+  string huisnr_buitenland = 8; // QName HuisnrBuitenland
+}
+
+message StraatadresType {
+  string locatieoms = 1; // QName Locatieoms
+  string postcd = 2; // QName Postcd
+  string woonplaatsnaam = 3; // QName Woonplaatsnaam
+  string gemeentenaam = 4; // QName Gemeentenaam
+  string straatnaam = 5; // QName Straatnaam
+  string huisnr = 6; // QName Huisnr
+  string huisnrtoevoeging = 7; // QName Huisnrtoevoeging
+  string woonbootverwijzing = 8; // QName Woonbootverwijzing
+  string woonwagenverwijzing = 9; // QName Woonwagenverwijzing
+}
+
+message SzWetType {
+  string cd_sz_wet = 1; // QName CdSzWet
+}
+
+message VoortzettingsrelatieType {
+  StandaardPercType perc_loonsom_overgegaan_in_opvolger = 1; // QName PercLoonsomOvergegaanInOpvolger
+  string dat_voortzettingsrelatie = 2; // QName DatVoortzettingsrelatie
+  string loonheffingennr = 3; // QName Loonheffingennr
+}
