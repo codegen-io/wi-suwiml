@@ -1,12 +1,12 @@
 package io.codegen.wi.suwiml.stax.uwvdossierinkomsten_v0500;
 
+import io.codegen.wi.suwiml.proto.uwvdossierinkomsten_v0500.SectorBeroepsEnBedrijfslevenType;
+import io.codegen.wi.suwiml.stax.util.Util;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
-import io.codegen.wi.suwiml.stax.Util;
-import io.codegen.wi.suwiml.proto.uwvdossierinkomsten_v0500.SectorBeroepsEnBedrijfslevenType;
 
 final class SectorBeroepsEnBedrijfslevenTypeTransformer {
   public static SectorBeroepsEnBedrijfslevenType read(XMLStreamReader reader) throws

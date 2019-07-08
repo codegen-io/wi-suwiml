@@ -60,6 +60,7 @@
   </properties>
 
   <modules>
+    <module>wi-suwiml-stax-util</module>
     <module>wi-suwiml-proto-uwvdossierinkomsten-v0500</module>
     <module>wi-suwiml-stax-uwvdossierinkomsten-v0500</module>
   </modules>

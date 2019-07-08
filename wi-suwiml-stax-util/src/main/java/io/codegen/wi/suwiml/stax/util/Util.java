@@ -1,4 +1,4 @@
-package io.codegen.wi.suwiml.stax;
+package io.codegen.wi.suwiml.stax.util;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
