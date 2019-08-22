@@ -271,7 +271,7 @@ message OuderType {
   string a_nr = 6; // QName ANr
   TitulatuurType titulatuur = 7; // QName Titulatuur
   string dat_b_familierechtelijke_betrekking = 8; // QName DatBFamilierechtelijkeBetrekking
-  OnderzoekGegType onderzoek_geg_ouder = 9; // QName OnderzoekGegOuder2
+  OnderzoekGegType onderzoek_geg_ouder2 = 9; // QName OnderzoekGegOuder2
 }
 
 message OuderType_1 {
@@ -283,7 +283,7 @@ message OuderType_1 {
   string a_nr = 6; // QName ANr
   TitulatuurType titulatuur = 7; // QName Titulatuur
   string dat_b_familierechtelijke_betrekking = 8; // QName DatBFamilierechtelijkeBetrekking
-  OnderzoekGegType onderzoek_geg_ouder = 9; // QName OnderzoekGegOuder1
+  OnderzoekGegType onderzoek_geg_ouder1 = 9; // QName OnderzoekGegOuder1
 }
 
 message StraatadresType {
