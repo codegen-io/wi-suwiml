@@ -61,6 +61,8 @@
 
   <modules>
     <module>wi-suwiml-stax-util</module>
+    <module>wi-suwiml-proto-brpdossierpersoongsd-v0101</module>
+    <module>wi-suwiml-stax-brpdossierpersoongsd-v0101</module>
     <module>wi-suwiml-proto-uwvdossierinkomsten-v0500</module>
     <module>wi-suwiml-stax-uwvdossierinkomsten-v0500</module>
   </modules>
