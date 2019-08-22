@@ -1,0 +1,306 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.codegen.wi.suwiml.proto.brpdossierpersoongsd_v0101";
+option java_outer_classname = "BRPDossierPersoonGSD_v0101";
+
+package io.codegen.wi.suwiml.proto.brpdossierpersoongsd_v0101;
+
+import "google/api/annotations.proto";
+
+// Service definition for BRPDossierPersoonGSD-v0101
+service BRPDossierPersoonGSD_v0101Service {
+
+  // Operation {http://bkwi.nl/SuwiML/Diensten/BRPDossierPersoon/GSD/v0101}AanvraagPersoon
+  rpc AanvraagPersoonRequest (AanvraagPersoon) returns (AanvraagPersoonResponse) {
+    option (google.api.http) = {
+      post: "/BRPDossierPersoonGSD-v0101/AanvraagPersoon"
+    };
+  }
+
+}
+
+message AanvraagPersoon { // QName {http://bkwi.nl/SuwiML/Diensten/BRPDossierPersoon/GSD/v0101}AanvraagPersoon
+  string burgerservicenr = 1; // QName Burgerservicenr
+}
+
+message AanvraagPersoonResponse { // QName {http://bkwi.nl/SuwiML/Diensten/BRPDossierPersoon/GSD/v0101}AanvraagPersoonResponse
+  repeated ClientSuwi client_suwi = 1; // QName ClientSuwi
+  FWI f_w_i = 2; // QName {http://bkwi.nl/SuwiML/FWI/v0203}FWI
+  bool niets_gevonden = 3; // QName {http://bkwi.nl/SuwiML/FWI/v0203}NietsGevonden
+
+  message ClientSuwi { // QName ClientSuwi
+    string voornamen = 1; // QName Voornamen
+    string voorvoegsel = 2; // QName Voorvoegsel
+    string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+    string geboortedat = 4; // QName Geboortedat
+    string burgerservicenr = 5; // QName Burgerservicenr
+    string cd_brp_gegevens_geheim = 6; // QName CdBrpGegevensGeheim
+    string a_nr = 7; // QName ANr
+    string aanduiding_naamgebruik = 8; // QName AanduidingNaamgebruik
+    string geslacht = 9; // QName Geslacht
+    string cd_geboortegemeente = 10; // QName CdGeboortegemeente
+    string geboorteplaats = 11; // QName Geboorteplaats
+    string geboorteland = 12; // QName Geboorteland
+    TitulatuurType titulatuur = 13; // QName Titulatuur
+    OnderzoekGegType onderzoek_geg_persoon = 14; // QName OnderzoekGegPersoon
+    GeldigheidType geldigheid_gegevens_persoon = 15; // QName GeldigheidGegevensPersoon
+    repeated ClientSuwiHistorisch client_suwi_historisch = 16; // QName ClientSuwiHistorisch
+    repeated Nationaliteit nationaliteit = 17; // QName Nationaliteit
+    repeated NationaliteitHistorisch nationaliteit_historisch = 18; // QName NationaliteitHistorisch
+    Verblijfstitel verblijfstitel = 19; // QName Verblijfstitel
+    repeated VerblijfstitelHistorisch verblijfstitel_historisch = 20; // QName VerblijfstitelHistorisch
+    StraatadresType domicilie_adres = 21; // QName DomicilieAdres
+    StraatadresType correspondentieadres = 22; // QName Correspondentieadres
+    FeitelijkAdresBuitenland feitelijk_adres_buitenland = 23; // QName FeitelijkAdresBuitenland
+    ImmigratieType immigratie = 24; // QName Immigratie
+    AangifteAdreshoudingBrpType aangifte_adreshouding_brp = 25; // QName AangifteAdreshoudingBrp
+    OnderzoekGegType onderzoek_geg_verblijfplaats = 26; // QName OnderzoekGegVerblijfplaats
+    repeated VerblijfplaatsHistorisch verblijfplaats_historisch = 27; // QName VerblijfplaatsHistorisch
+    Overlijden overlijden = 28; // QName Overlijden
+    OuderType ouder1 = 29; // QName Ouder1
+    OuderType ouder2 = 30; // QName Ouder2
+    repeated Huwelijk huwelijk = 31; // QName Huwelijk
+    repeated HuwelijkHistorisch huwelijk_historisch = 32; // QName HuwelijkHistorisch
+    repeated Kind kind = 33; // QName Kind
+    Gezagsverhouding gezagsverhouding = 34; // QName Gezagsverhouding
+    InschrijvingsgegevensBrp inschrijvingsgegevens_brp = 35; // QName InschrijvingsgegevensBrp
+
+    message ClientSuwiHistorisch { // QName ClientSuwiHistorisch
+      string voornamen = 1; // QName Voornamen
+      string voorvoegsel = 2; // QName Voorvoegsel
+      string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+      string geboortedat = 4; // QName Geboortedat
+      string burgerservicenr = 5; // QName Burgerservicenr
+      string a_nr = 6; // QName ANr
+      OnderzoekGegType onderzoek_geg_persoon = 7; // QName OnderzoekGegPersoon
+      OnjuistGegType onjuist_geg_persoon = 8; // QName OnjuistGegPersoon
+      GeldigheidType geldigheid_gegevens_persoon = 9; // QName GeldigheidGegevensPersoon
+    }
+
+    message Nationaliteit { // QName Nationaliteit
+      string cd_nationaliteit = 1; // QName CdNationaliteit
+      OnderzoekGegType onderzoek_geg_nationaliteit = 2; // QName OnderzoekGegNationaliteit
+      string cd_bijzonder_nederlanderschap = 3; // QName CdBijzonderNederlanderschap
+      GeldigheidType geldigheid_gegevens_nationaliteit = 4; // QName GeldigheidGegevensNationaliteit
+    }
+
+    message NationaliteitHistorisch { // QName NationaliteitHistorisch
+      string cd_nationaliteit = 1; // QName CdNationaliteit
+      OnderzoekGegType onderzoek_geg_nationaliteit = 2; // QName OnderzoekGegNationaliteit
+      OnjuistGegType onjuist_geg_nationaliteit = 3; // QName OnjuistGegNationaliteit
+      string cd_bijzonder_nederlanderschap = 4; // QName CdBijzonderNederlanderschap
+      GeldigheidType geldigheid_gegevens_nationaliteit = 5; // QName GeldigheidGegevensNationaliteit
+    }
+
+    message Verblijfstitel { // QName Verblijfstitel
+      string cd_verblijfstitel = 1; // QName CdVerblijfstitel
+      string dat_b_verblijfstitel = 2; // QName DatBVerblijfstitel
+      string dat_e_verblijfstitel = 3; // QName DatEVerblijfstitel
+      OnderzoekGegType onderzoek_geg_verblijfstitel = 4; // QName OnderzoekGegVerblijfstitel
+      GeldigheidType geldigheid_gegevens_verblijfstitel = 5; // QName GeldigheidGegevensVerblijfstitel
+    }
+
+    message VerblijfstitelHistorisch { // QName VerblijfstitelHistorisch
+      string cd_verblijfstitel = 1; // QName CdVerblijfstitel
+      string dat_b_verblijfstitel = 2; // QName DatBVerblijfstitel
+      string dat_e_verblijfstitel = 3; // QName DatEVerblijfstitel
+      OnderzoekGegType onderzoek_geg_verblijfstitel = 4; // QName OnderzoekGegVerblijfstitel
+      OnjuistGegType onjuist_geg_verblijfstitel = 5; // QName OnjuistGegVerblijfstitel
+      GeldigheidType geldigheid_gegevens_verblijfstitel = 6; // QName GeldigheidGegevensVerblijfstitel
+    }
+
+    message FeitelijkAdresBuitenland { // QName FeitelijkAdresBuitenland
+      string dat_b_adres_buitenland = 1; // QName DatBAdresBuitenland
+      string land_adres_buitenland = 2; // QName LandAdresBuitenland
+      string adresregel1_buitenland = 3; // QName Adresregel1Buitenland
+      string adresregel2_buitenland = 4; // QName Adresregel2Buitenland
+      string adresregel3_buitenland = 5; // QName Adresregel3Buitenland
+    }
+
+    message VerblijfplaatsHistorisch { // QName VerblijfplaatsHistorisch
+      StraatadresType domicilie_adres = 1; // QName DomicilieAdres
+      StraatadresType correspondentieadres = 2; // QName Correspondentieadres
+      repeated FeitelijkAdresBuitenland feitelijk_adres_buitenland = 3; // QName FeitelijkAdresBuitenland
+      ImmigratieType immigratie = 4; // QName Immigratie
+      AangifteAdreshoudingBrpType aangifte_adreshouding_brp = 5; // QName AangifteAdreshoudingBrp
+      OnderzoekGegType onderzoek_geg_verblijfplaats = 6; // QName OnderzoekGegVerblijfplaats
+      OnjuistGegType onjuist_geg_verblijfplaats = 7; // QName OnjuistGegVerblijfplaats
+
+      message FeitelijkAdresBuitenland { // QName FeitelijkAdresBuitenland
+        string dat_b_adres_buitenland = 1; // QName DatBAdresBuitenland
+        string land_adres_buitenland = 2; // QName LandAdresBuitenland
+      }
+    }
+
+    message Overlijden { // QName Overlijden
+      string dat_overlijden = 1; // QName DatOverlijden
+      OnderzoekGegType onderzoek_geg_overlijden = 2; // QName OnderzoekGegOverlijden
+      string cd_gemeente_overlijden = 3; // QName CdGemeenteOverlijden
+      string plaats_overlijden = 4; // QName PlaatsOverlijden
+      string land_overlijden = 5; // QName LandOverlijden
+    }
+
+    message Huwelijk { // QName Huwelijk
+      string dat_huwelijkssluiting = 1; // QName DatHuwelijkssluiting
+      OnderzoekGegType onderzoek_geg_huwelijk = 2; // QName OnderzoekGegHuwelijk
+      Partner partner = 3; // QName Partner
+      string cd_gemeente_huwelijkssluiting = 4; // QName CdGemeenteHuwelijkssluiting
+      string plaats_huwelijkssluiting = 5; // QName PlaatsHuwelijkssluiting
+      string land_huwelijkssluiting = 6; // QName LandHuwelijkssluiting
+      string dat_ontbinding_huwelijk = 7; // QName DatOntbindingHuwelijk
+      string cd_gemeente_ontbinding_huwelijk = 8; // QName CdGemeenteOntbindingHuwelijk
+      string plaats_ontbinding_huwelijk = 9; // QName PlaatsOntbindingHuwelijk
+      string land_ontbinding_huwelijk = 10; // QName LandOntbindingHuwelijk
+      string cd_reden_ontbinding_huwelijk = 11; // QName CdRedenOntbindingHuwelijk
+
+      message Partner { // QName Partner
+        string voornamen = 1; // QName Voornamen
+        string voorvoegsel = 2; // QName Voorvoegsel
+        string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+        string geboortedat = 4; // QName Geboortedat
+        string burgerservicenr = 5; // QName Burgerservicenr
+        string a_nr = 6; // QName ANr
+        string cd_geboortegemeente = 7; // QName CdGeboortegemeente
+        string geboorteplaats = 8; // QName Geboorteplaats
+        string geboorteland = 9; // QName Geboorteland
+        TitulatuurType titulatuur = 10; // QName Titulatuur
+      }
+    }
+
+    message HuwelijkHistorisch { // QName HuwelijkHistorisch
+      string dat_huwelijkssluiting = 1; // QName DatHuwelijkssluiting
+      OnderzoekGegType onderzoek_geg_huwelijk = 2; // QName OnderzoekGegHuwelijk
+      OnjuistGegType onjuist_geg_huwelijk = 3; // QName OnjuistGegHuwelijk
+      Partner partner = 4; // QName Partner
+
+      message Partner { // QName Partner
+        string burgerservicenr = 1; // QName Burgerservicenr
+        string a_nr = 2; // QName ANr
+      }
+    }
+
+    message Kind { // QName Kind
+      string voornamen = 1; // QName Voornamen
+      string voorvoegsel = 2; // QName Voorvoegsel
+      string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+      string geboortedat = 4; // QName Geboortedat
+      string burgerservicenr = 5; // QName Burgerservicenr
+      string a_nr = 6; // QName ANr
+      TitulatuurType titulatuur = 7; // QName Titulatuur
+      OnderzoekGegType onderzoek_geg_kind = 8; // QName OnderzoekGegKind
+      GeldigheidType geldigheid_gegevens_kind = 9; // QName GeldigheidGegevensKind
+    }
+
+    message Gezagsverhouding { // QName Gezagsverhouding
+      string cd_gezag_minderjarige = 1; // QName CdGezagMinderjarige
+      string ind_curatelestelling = 2; // QName IndCuratelestelling
+      OnderzoekGegType onderzoek_geg_gezag = 3; // QName OnderzoekGegGezag
+    }
+
+    message InschrijvingsgegevensBrp { // QName InschrijvingsgegevensBrp
+      string dat_opschorting_bijhouding_pl = 1; // QName DatOpschortingBijhoudingPl
+      string cd_reden_opschorting_bijhouding_pl = 2; // QName CdRedenOpschortingBijhoudingPl
+      string cd_gemeente_waar_pk_zich_bevindt = 3; // QName CdGemeenteWaarPkZichBevindt
+      VerificatieRni verificatie_rni = 4; // QName VerificatieRni
+      string cd_pk_volledig_geconverteerd = 5; // QName CdPkVolledigGeconverteerd
+      RniDeelnemer rni_deelnemer = 6; // QName RniDeelnemer
+
+      message VerificatieRni { // QName VerificatieRni
+        string dat_verificatie_rni = 1; // QName DatVerificatieRni
+        string oms_verificatie_rni = 2; // QName OmsVerificatieRni
+      }
+
+      message RniDeelnemer { // QName RniDeelnemer
+        string cd_rni_deelnemer = 1; // QName CdRniDeelnemer
+        string oms_verdrag_rni_deelnemer = 2; // QName OmsVerdragRniDeelnemer
+      }
+    }
+  }
+
+  message FWI { // QName {http://bkwi.nl/SuwiML/FWI/v0203}FWI
+    repeated MeldingType fout = 1; // QName Fout
+    repeated MeldingType waarschuwing = 2; // QName Waarschuwing
+    repeated MeldingType informatie = 3; // QName Informatie
+  }
+}
+
+
+message AangifteAdreshoudingBrpType {
+  string cd_gemeente_van_inschrijving = 1; // QName CdGemeenteVanInschrijving
+  string dat_van_inschrijving_bij_gemeente = 2; // QName DatVanInschrijvingBijGemeente
+  string dat_b_adreshouding_brp = 3; // QName DatBAdreshoudingBrp
+}
+
+message BronType {
+  string d_n = 1; // QName DN
+}
+
+message GeldigheidType {
+  string dat_geldigheid_gegevens = 1; // QName DatGeldigheidGegevens
+}
+
+message ImmigratieType {
+  string dat_vestiging_nederland = 1; // QName DatVestigingNederland
+  string land_vanwaar_ingeschreven = 2; // QName LandVanwaarIngeschreven
+}
+
+message MeldingType {
+  string code = 1; // QName Code
+  string tekst = 2; // QName Tekst
+  repeated string detail = 3; // QName Detail
+  BronType bron = 4; // QName Bron
+}
+
+message OnderzoekGegType {
+  string aanduiding_onderzoek = 1; // QName AanduidingOnderzoek
+  string dat_b_onderzoek = 2; // QName DatBOnderzoek
+  string dat_e_onderzoek = 3; // QName DatEOnderzoek
+}
+
+message OnjuistGegType {
+  string cd_onjuist_strijdig_met_openbare_orde = 1; // QName CdOnjuistStrijdigMetOpenbareOrde
+}
+
+message OuderType {
+  string voornamen = 1; // QName Voornamen
+  string voorvoegsel = 2; // QName Voorvoegsel
+  string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+  string geboortedat = 4; // QName Geboortedat
+  string burgerservicenr = 5; // QName Burgerservicenr
+  string a_nr = 6; // QName ANr
+  TitulatuurType titulatuur = 7; // QName Titulatuur
+  string dat_b_familierechtelijke_betrekking = 8; // QName DatBFamilierechtelijkeBetrekking
+  OnderzoekGegType onderzoek_geg_ouder = 9; // QName OnderzoekGegOuder2
+}
+
+message OuderType_1 {
+  string voornamen = 1; // QName Voornamen
+  string voorvoegsel = 2; // QName Voorvoegsel
+  string significant_deel_van_de_achternaam = 3; // QName SignificantDeelVanDeAchternaam
+  string geboortedat = 4; // QName Geboortedat
+  string burgerservicenr = 5; // QName Burgerservicenr
+  string a_nr = 6; // QName ANr
+  TitulatuurType titulatuur = 7; // QName Titulatuur
+  string dat_b_familierechtelijke_betrekking = 8; // QName DatBFamilierechtelijkeBetrekking
+  OnderzoekGegType onderzoek_geg_ouder = 9; // QName OnderzoekGegOuder1
+}
+
+message StraatadresType {
+  string locatieoms = 1; // QName Locatieoms
+  string postcd = 2; // QName Postcd
+  string woonplaatsnaam = 3; // QName Woonplaatsnaam
+  string gemeentedeel = 4; // QName Gemeentedeel
+  string straatnaam = 5; // QName Straatnaam
+  string naam_openbare_ruimte = 6; // QName NaamOpenbareRuimte
+  string huisnr = 7; // QName Huisnr
+  string huisletter = 8; // QName Huisletter
+  string huisnrtoevoeging = 9; // QName Huisnrtoevoeging
+  string aanduiding_bij_huisnr = 10; // QName AanduidingBijHuisnr
+  string identificatiecd_verblijfplaats = 11; // QName IdentificatiecdVerblijfplaats
+  string identificatiecd_nraanduiding = 12; // QName IdentificatiecdNraanduiding
+}
+
+message TitulatuurType {
+  string cd_adellijke_titel_predikaat = 1; // QName CdAdellijkeTitelPredikaat
+}
