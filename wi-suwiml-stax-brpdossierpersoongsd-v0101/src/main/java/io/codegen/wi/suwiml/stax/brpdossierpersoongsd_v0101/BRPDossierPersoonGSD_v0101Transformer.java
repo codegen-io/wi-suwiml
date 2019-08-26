@@ -237,7 +237,7 @@ public final class BRPDossierPersoonGSD_v0101Transformer {
                 builder.setOverlijden(OverlijdenTransformer.read(reader));
                 break;
               case "Ouder1":
-                builder.setOuder1(OuderTypeTransformer.read(reader));
+                builder.setOuder1(OuderType_1Transformer.read(reader));
                 break;
               case "Ouder2":
                 builder.setOuder2(OuderTypeTransformer.read(reader));
@@ -368,7 +368,7 @@ public final class BRPDossierPersoonGSD_v0101Transformer {
         }
         if (value.hasOuder1()) {
           Util.writeStartElement(writer, "Ouder1");
-          OuderTypeTransformer.write(writer, value.getOuder1());
+          OuderType_1Transformer.write(writer, value.getOuder1());
           Util.writeEndElement(writer);
         }
         if (value.hasOuder2()) {

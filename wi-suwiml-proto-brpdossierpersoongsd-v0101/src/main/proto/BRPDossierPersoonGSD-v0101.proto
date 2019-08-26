@@ -58,7 +58,7 @@ message AanvraagPersoonResponse { // QName {http://bkwi.nl/SuwiML/Diensten/BRPDo
     OnderzoekGegType onderzoek_geg_verblijfplaats = 26; // QName OnderzoekGegVerblijfplaats
     repeated VerblijfplaatsHistorisch verblijfplaats_historisch = 27; // QName VerblijfplaatsHistorisch
     Overlijden overlijden = 28; // QName Overlijden
-    OuderType ouder1 = 29; // QName Ouder1
+    OuderType_1 ouder1 = 29; // QName Ouder1
     OuderType ouder2 = 30; // QName Ouder2
     repeated Huwelijk huwelijk = 31; // QName Huwelijk
     repeated HuwelijkHistorisch huwelijk_historisch = 32; // QName HuwelijkHistorisch
