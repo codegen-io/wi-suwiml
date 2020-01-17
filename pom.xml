@@ -62,9 +62,17 @@
   <modules>
     <module>wi-suwiml-stax-util</module>
     <module>wi-suwiml-proto-brpdossierpersoongsd-v0101</module>
-    <module>wi-suwiml-stax-brpdossierpersoongsd-v0101</module>
+    <module>wi-suwiml-proto-brpdossierpersoonleefsituatiebvv-v0100</module>
+    <module>wi-suwiml-proto-bvvherzieneberekeningbeslaglegger-v0100</module>
+    <module>wi-suwiml-proto-bvvinitberekeningbeslaglegger-v0100</module>
     <module>wi-suwiml-proto-uwvdossierinkomsten-v0500</module>
+    <module>wi-suwiml-proto-uwvdossierinkomstenvoorbewerkingbvv-v0100</module>
+    <module>wi-suwiml-stax-brpdossierpersoongsd-v0101</module>
+    <module>wi-suwiml-stax-brpdossierpersoonleefsituatiebvv-v0100</module>
+    <module>wi-suwiml-stax-bvvherzieneberekeningbeslaglegger-v0100</module>
+    <module>wi-suwiml-stax-bvvinitberekeningbeslaglegger-v0100</module>
     <module>wi-suwiml-stax-uwvdossierinkomsten-v0500</module>
+    <module>wi-suwiml-stax-uwvdossierinkomstenvoorbewerkingbvv-v0100</module>
   </modules>
 
   <dependencyManagement>
@@ -200,7 +208,7 @@
           <artifactId>maven-release-plugin</artifactId>
           <version>2.5.3</version>
           <configuration>
-            <autoversionsubmodules>true</autoversionsubmodules>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <releaseProfiles>sonatype-oss-release</releaseProfiles>
           </configuration>

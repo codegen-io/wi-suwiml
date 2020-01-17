@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.codegen.wi.suwiml.proto.brpdossierpersoonleefsituatiebvv_v0100";
+option java_outer_classname = "BRPDossierPersoonLeefsituatieBVV_v0100";
+
+package io.codegen.wi.suwiml.proto.brpdossierpersoonleefsituatiebvv_v0100;
+
+import "google/api/annotations.proto";
+
+// Service definition for BRPDossierPersoonLeefsituatieBVV-v0100
+service BRPDossierPersoonLeefsituatieBVV_v0100Service {
+
+  // Operation {http://bkwi.nl/SuwiML/Diensten/BRPDossierPersoonLeefsituatieBVV/v0100}AanvraagPersoon
+  rpc AanvraagPersoonRequest (AanvraagPersoon) returns (AanvraagPersoonResponse) {
+    option (google.api.http) = {
+      post: "/BRPDossierPersoonLeefsituatieBVV-v0100/AanvraagPersoon"
+    };
+  }
+
+}
+
+message AanvraagPersoon { // QName {http://bkwi.nl/SuwiML/Diensten/BRPDossierPersoonLeefsituatieBVV/v0100}AanvraagPersoon
+  string burgerservicenr = 1; // QName Burgerservicenr
+}
+
+message AanvraagPersoonResponse { // QName {http://bkwi.nl/SuwiML/Diensten/BRPDossierPersoonLeefsituatieBVV/v0100}AanvraagPersoonResponse
+  Schuldenaar schuldenaar = 1; // QName Schuldenaar
+  FWI f_w_i = 2; // QName {http://bkwi.nl/SuwiML/FWI/v0205}FWI
+  bool niets_gevonden = 3; // QName {http://bkwi.nl/SuwiML/FWI/v0205}NietsGevonden
+
+  message Schuldenaar { // QName Schuldenaar
+    string voorvoegsel = 1; // QName Voorvoegsel
+    string significant_deel_van_de_achternaam = 2; // QName SignificantDeelVanDeAchternaam
+    string geboortedat = 3; // QName Geboortedat
+    string burgerservicenr = 4; // QName Burgerservicenr
+    string cd_brp_gegevens_geheim = 5; // QName CdBrpGegevensGeheim
+    OnderzoekGegType onderzoek_geg_persoon = 6; // QName OnderzoekGegPersoon
+    StraatadresBrpType domicilie_adres = 7; // QName DomicilieAdres
+    StraatadresBrpType correspondentieadres = 8; // QName Correspondentieadres
+    FeitelijkAdresBuitenland feitelijk_adres_buitenland = 9; // QName FeitelijkAdresBuitenland
+    OnderzoekGegType onderzoek_geg_verblijfplaats = 10; // QName OnderzoekGegVerblijfplaats
+    OverlijdenType overlijden = 11; // QName Overlijden
+    Ouder1Type ouder1 = 12; // QName Ouder1
+    Ouder2Type ouder2 = 13; // QName Ouder2
+    repeated HuwelijkType huwelijk = 14; // QName Huwelijk
+    repeated KindType kind = 15; // QName Kind
+    repeated OverigeInwonende overige_inwonende = 16; // QName OverigeInwonende
+
+    message FeitelijkAdresBuitenland { // QName FeitelijkAdresBuitenland
+      string dat_b_adres_buitenland = 1; // QName DatBAdresBuitenland
+      string land_adres_buitenland = 2; // QName LandAdresBuitenland
+      string adresregel1_buitenland = 3; // QName Adresregel1Buitenland
+      string adresregel2_buitenland = 4; // QName Adresregel2Buitenland
+      string adresregel3_buitenland = 5; // QName Adresregel3Buitenland
+    }
+
+    message OverigeInwonende { // QName OverigeInwonende
+      string voorvoegsel = 1; // QName Voorvoegsel
+      string significant_deel_van_de_achternaam = 2; // QName SignificantDeelVanDeAchternaam
+      string geboortedat = 3; // QName Geboortedat
+      string burgerservicenr = 4; // QName Burgerservicenr
+      string cd_brp_gegevens_geheim = 5; // QName CdBrpGegevensGeheim
+      OnderzoekGegType onderzoek_geg_persoon = 6; // QName OnderzoekGegPersoon
+      Ouder1Type ouder1 = 7; // QName Ouder1
+      Ouder2Type ouder2 = 8; // QName Ouder2
+      repeated HuwelijkType huwelijk = 9; // QName Huwelijk
+      repeated KindType kind = 10; // QName Kind
+    }
+  }
+
+  message FWI { // QName {http://bkwi.nl/SuwiML/FWI/v0205}FWI
+    repeated MeldingType fout = 1; // QName Fout
+    repeated MeldingType waarschuwing = 2; // QName Waarschuwing
+    repeated MeldingType informatie = 3; // QName Informatie
+  }
+}
+
+
+message BronType {
+  string d_n = 1; // QName DN
+}
+
+message HuwelijkType {
+  string dat_huwelijkssluiting = 1; // QName DatHuwelijkssluiting
+  OnderzoekGegType onderzoek_geg_huwelijk = 2; // QName OnderzoekGegHuwelijk
+  PartnerType partner = 3; // QName Partner
+  string dat_ontbinding_huwelijk = 4; // QName DatOntbindingHuwelijk
+}
+
+message KindType {
+  string geboortedat = 1; // QName Geboortedat
+  string burgerservicenr = 2; // QName Burgerservicenr
+  OnderzoekGegType onderzoek_geg_kind = 3; // QName OnderzoekGegKind
+}
+
+message MeldingType {
+  string code = 1; // QName Code
+  string tekst = 2; // QName Tekst
+  repeated string detail = 3; // QName Detail
+  BronType bron = 4; // QName Bron
+}
+
+message OnderzoekGegType {
+  string aanduiding_onderzoek = 1; // QName AanduidingOnderzoek
+  string dat_b_onderzoek = 2; // QName DatBOnderzoek
+  string dat_e_onderzoek = 3; // QName DatEOnderzoek
+}
+
+message Ouder1Type {
+  string burgerservicenr = 1; // QName Burgerservicenr
+  OnderzoekGegType onderzoek_geg_ouder1 = 2; // QName OnderzoekGegOuder1
+}
+
+message Ouder2Type {
+  string burgerservicenr = 1; // QName Burgerservicenr
+  OnderzoekGegType onderzoek_geg_ouder2 = 2; // QName OnderzoekGegOuder2
+}
+
+message OverlijdenType {
+  string dat_overlijden = 1; // QName DatOverlijden
+  OnderzoekGegType onderzoek_geg_overlijden = 2; // QName OnderzoekGegOverlijden
+}
+
+message PartnerType {
+  string burgerservicenr = 1; // QName Burgerservicenr
+  OverlijdenType overlijden = 2; // QName Overlijden
+}
+
+message StraatadresBrpType {
+  string postcd = 1; // QName Postcd
+  string woonplaatsnaam = 2; // QName Woonplaatsnaam
+  string straatnaam = 3; // QName Straatnaam
+  string huisnr = 4; // QName Huisnr
+  string huisletter = 5; // QName Huisletter
+  string huisnrtoevoeging = 6; // QName Huisnrtoevoeging
+  string aanduiding_bij_huisnr = 7; // QName AanduidingBijHuisnr
+}

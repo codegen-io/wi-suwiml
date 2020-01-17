@@ -1,0 +1,281 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.codegen.wi.suwiml.proto.bvvinitberekeningbeslaglegger_v0100";
+option java_outer_classname = "BVVInitBerekeningBeslaglegger_v0100";
+
+package io.codegen.wi.suwiml.proto.bvvinitberekeningbeslaglegger_v0100;
+
+import "google/api/annotations.proto";
+
+// Service definition for BVVInitBerekeningBeslaglegger-v0100
+service BVVInitBerekeningBeslaglegger_v0100Service {
+
+  // Operation {http://bkwi.nl/SuwiML/Diensten/BVVInitBerekeningBeslaglegger/v0100}BVVInitBerekeningBeslagleggerInfo
+  rpc BVVInitBerekeningBeslagleggerInfoRequest (BVVInitBerekeningBeslagleggerInfo) returns (BVVInitBerekeningBeslagleggerInfoResponse) {
+    option (google.api.http) = {
+      post: "/BVVInitBerekeningBeslaglegger-v0100/BVVInitBerekeningBeslagleggerInfo"
+    };
+  }
+
+}
+
+message BVVInitBerekeningBeslagleggerInfo { // QName {http://bkwi.nl/SuwiML/Diensten/BVVInitBerekeningBeslaglegger/v0100}BVVInitBerekeningBeslagleggerInfo
+  string burgerservicenr = 1; // QName Burgerservicenr
+  string dat_aanvraag_bvv = 2; // QName DatAanvraagBvv
+  AanvullendeGegevensBvv aanvullende_gegevens_bvv = 3; // QName AanvullendeGegevensBvv
+
+  message AanvullendeGegevensBvv { // QName AanvullendeGegevensBvv
+    AanvullendKenmerkBvv aanvullend_kenmerk_bvv = 1; // QName AanvullendKenmerkBvv
+
+    message AanvullendKenmerkBvv { // QName AanvullendKenmerkBvv
+      string ind_verblijf_in_inrichting = 1; // QName IndVerblijfInInrichting
+      BedrKostenVerzorgingVerpleging bedr_kosten_verzorging_verpleging = 2; // QName BedrKostenVerzorgingVerpleging
+      string cd_srt_woning_bvv = 3; // QName CdSrtWoningBvv
+      BedrWoonlasten bedr_woonlasten = 4; // QName BedrWoonlasten
+
+      message BedrKostenVerzorgingVerpleging { // QName BedrKostenVerzorgingVerpleging
+        string cd_munteenheid = 1; // QName CdMunteenheid
+        string cd_positief_negatief = 2; // QName CdPositiefNegatief
+        string waarde_bedr = 3; // QName WaardeBedr
+        string cd_periode_eenheid_geldigheid_bedr = 4; // QName CdPeriodeEenheidGeldigheidBedr
+      }
+
+      message BedrWoonlasten { // QName BedrWoonlasten
+        string cd_munteenheid = 1; // QName CdMunteenheid
+        string cd_positief_negatief = 2; // QName CdPositiefNegatief
+        string waarde_bedr = 3; // QName WaardeBedr
+        string cd_periode_eenheid_geldigheid_bedr = 4; // QName CdPeriodeEenheidGeldigheidBedr
+      }
+    }
+  }
+}
+
+message BVVInitBerekeningBeslagleggerInfoResponse { // QName {http://bkwi.nl/SuwiML/Diensten/BVVInitBerekeningBeslaglegger/v0100}BVVInitBerekeningBeslagleggerInfoResponse
+  Schuldenaar schuldenaar = 1; // QName Schuldenaar
+  FWI f_w_i = 2; // QName {http://bkwi.nl/SuwiML/FWI/v0205}FWI
+  bool niets_gevonden = 3; // QName {http://bkwi.nl/SuwiML/FWI/v0205}NietsGevonden
+
+  message Schuldenaar { // QName Schuldenaar
+    string burgerservicenr = 1; // QName Burgerservicenr
+    string dat_berekening_bvv = 2; // QName DatBerekeningBvv
+    BerekeningBvv berekening_bvv = 3; // QName BerekeningBvv
+    GrondslagenBvv grondslagen_bvv = 4; // QName GrondslagenBvv
+
+    message BerekeningBvv { // QName BerekeningBvv
+      StandaardBedrType bedr_totaal_belastbaar_jaarinkomen = 1; // QName BedrTotaalBelastbaarJaarinkomen
+      StandaardBedrType bedr_basis_bvv_zonder_correcties = 2; // QName BedrBasisBvvZonderCorrecties
+      StandaardBedrType bedr_basis_bvv_na_correctie_woonsituatie = 3; // QName BedrBasisBvvNaCorrectieWoonsituatie
+      StandaardBedrType bedr_ophoging_woonlasten = 4; // QName BedrOphogingWoonlasten
+      string toegepaste_woonlandfactor = 5; // QName ToegepasteWoonlandfactor
+    }
+  }
+
+  message FWI { // QName {http://bkwi.nl/SuwiML/FWI/v0205}FWI
+    repeated MeldingType fout = 1; // QName Fout
+    repeated MeldingType waarschuwing = 2; // QName Waarschuwing
+    repeated MeldingType informatie = 3; // QName Informatie
+  }
+}
+
+
+message BronType {
+  string d_n = 1; // QName DN
+}
+
+message GrondslagenBvv {
+  GrondslagLeefsituatieBvv grondslag_leefsituatie_bvv = 1; // QName GrondslagLeefsituatieBvv
+  GrondslagInkomstenBvv grondslag_inkomsten_bvv = 2; // QName GrondslagInkomstenBvv
+
+  message GrondslagLeefsituatieBvv { // QName GrondslagLeefsituatieBvv
+    AfgeleidLeefsituatieBvv afgeleid_leefsituatie_bvv = 1; // QName AfgeleidLeefsituatieBvv
+    AanvullendKenmerkBvv aanvullend_kenmerk_bvv = 2; // QName AanvullendKenmerkBvv
+    RelevanteGegevensVolgensBrp relevante_gegevens_volgens_brp = 3; // QName RelevanteGegevensVolgensBrp
+
+    message AfgeleidLeefsituatieBvv { // QName AfgeleidLeefsituatieBvv
+      string cd_leefvorm_bvv = 1; // QName CdLeefvormBvv
+      string ind_ten_laste_komend_kind = 2; // QName IndTenLasteKomendKind
+      string ind_geldig_ned_woonadres = 3; // QName IndGeldigNedWoonadres
+      string land_adres = 4; // QName LandAdres
+    }
+
+    message AanvullendKenmerkBvv { // QName AanvullendKenmerkBvv
+      string ind_verblijf_in_inrichting = 1; // QName IndVerblijfInInrichting
+      StandaardBedrType bedr_kosten_verzorging_verpleging = 2; // QName BedrKostenVerzorgingVerpleging
+      string cd_srt_woning_bvv = 3; // QName CdSrtWoningBvv
+      StandaardBedrType bedr_woonlasten = 4; // QName BedrWoonlasten
+    }
+
+    message RelevanteGegevensVolgensBrp { // QName RelevanteGegevensVolgensBrp
+      Schuldenaar schuldenaar = 1; // QName Schuldenaar
+
+      message Schuldenaar { // QName Schuldenaar
+        string voorvoegsel = 1; // QName Voorvoegsel
+        string significant_deel_van_de_achternaam = 2; // QName SignificantDeelVanDeAchternaam
+        string burgerservicenr = 3; // QName Burgerservicenr
+        string cd_brp_gegevens_geheim = 4; // QName CdBrpGegevensGeheim
+        StraatadresBrpType domicilie_adres = 5; // QName DomicilieAdres
+        StraatadresBrpType correspondentieadres = 6; // QName Correspondentieadres
+        FeitelijkAdresBuitenland feitelijk_adres_buitenland = 7; // QName FeitelijkAdresBuitenland
+        repeated Huwelijk huwelijk = 8; // QName Huwelijk
+
+        message FeitelijkAdresBuitenland { // QName FeitelijkAdresBuitenland
+          string dat_b_adres_buitenland = 1; // QName DatBAdresBuitenland
+          string land_adres_buitenland = 2; // QName LandAdresBuitenland
+          string adresregel1_buitenland = 3; // QName Adresregel1Buitenland
+          string adresregel2_buitenland = 4; // QName Adresregel2Buitenland
+          string adresregel3_buitenland = 5; // QName Adresregel3Buitenland
+        }
+
+        message Huwelijk { // QName Huwelijk
+          Partner partner = 1; // QName Partner
+
+          message Partner { // QName Partner
+            string burgerservicenr = 1; // QName Burgerservicenr
+          }
+        }
+      }
+    }
+  }
+
+  message GrondslagInkomstenBvv { // QName GrondslagInkomstenBvv
+    RelevanteInkomstengegevensVolgensUwv relevante_inkomstengegevens_volgens_uwv = 1; // QName RelevanteInkomstengegevensVolgensUwv
+    RelevanteInkomstengegevensPartnerVolgensUwv relevante_inkomstengegevens_partner_volgens_uwv = 2; // QName RelevanteInkomstengegevensPartnerVolgensUwv
+    repeated Beslagobject beslagobject = 3; // QName Beslagobject
+    MeeInBerekeningInkomsten mee_in_berekening_inkomsten = 4; // QName MeeInBerekeningInkomsten
+
+    message RelevanteInkomstengegevensVolgensUwv { // QName RelevanteInkomstengegevensVolgensUwv
+      repeated Inkomstenverhouding inkomstenverhouding = 1; // QName Inkomstenverhouding
+
+      message Inkomstenverhouding { // QName Inkomstenverhouding
+        AdministratieveEenheid administratieve_eenheid = 1; // QName AdministratieveEenheid
+        repeated InkomstenperiodeType inkomstenperiode = 2; // QName Inkomstenperiode
+        repeated InkomstenopgaveType inkomstenopgave = 3; // QName Inkomstenopgave
+
+        message AdministratieveEenheid { // QName AdministratieveEenheid
+          string naam_administratieve_eenheid = 1; // QName NaamAdministratieveEenheid
+          string loonheffingennr = 2; // QName Loonheffingennr
+          repeated FeitelijkAdresAeh feitelijk_adres_aeh = 3; // QName FeitelijkAdresAeh
+
+          message FeitelijkAdresAeh { // QName FeitelijkAdresAeh
+            Straatadres straatadres = 1; // QName Straatadres
+            Postbusadres postbusadres = 2; // QName Postbusadres
+            StraatadresBuitenland straatadres_buitenland = 3; // QName StraatadresBuitenland
+            PostbusadresBuitenland postbusadres_buitenland = 4; // QName PostbusadresBuitenland
+
+            message Straatadres { // QName Straatadres
+              string locatieoms = 1; // QName Locatieoms
+              string postcd = 2; // QName Postcd
+              string woonplaatsnaam = 3; // QName Woonplaatsnaam
+              string gemeentenaam = 4; // QName Gemeentenaam
+              string straatnaam = 5; // QName Straatnaam
+              string huisnr = 6; // QName Huisnr
+              string huisnrtoevoeging = 7; // QName Huisnrtoevoeging
+              string woonbootverwijzing = 8; // QName Woonbootverwijzing
+              string woonwagenverwijzing = 9; // QName Woonwagenverwijzing
+            }
+
+            message Postbusadres { // QName Postbusadres
+              string locatieoms = 1; // QName Locatieoms
+              string postcd = 2; // QName Postcd
+              string woonplaatsnaam = 3; // QName Woonplaatsnaam
+              string gemeentenaam = 4; // QName Gemeentenaam
+              string postbusnr = 5; // QName Postbusnr
+            }
+
+            message StraatadresBuitenland { // QName StraatadresBuitenland
+              string locatieoms_buitenland = 1; // QName LocatieomsBuitenland
+              string postcd_buitenland = 2; // QName PostcdBuitenland
+              string woonplaatsnaam_buitenland = 3; // QName WoonplaatsnaamBuitenland
+              string regionaam_buitenland = 4; // QName RegionaamBuitenland
+              string landencd_iso = 5; // QName LandencdIso
+              string landsnaam = 6; // QName Landsnaam
+              string straatnaam_buitenland = 7; // QName StraatnaamBuitenland
+              string huisnr_buitenland = 8; // QName HuisnrBuitenland
+            }
+
+            message PostbusadresBuitenland { // QName PostbusadresBuitenland
+              string locatieoms_buitenland = 1; // QName LocatieomsBuitenland
+              string postcd_buitenland = 2; // QName PostcdBuitenland
+              string woonplaatsnaam_buitenland = 3; // QName WoonplaatsnaamBuitenland
+              string regionaam_buitenland = 4; // QName RegionaamBuitenland
+              string landencd_iso = 5; // QName LandencdIso
+              string landsnaam = 6; // QName Landsnaam
+              string postbusnr_buitenland = 7; // QName PostbusnrBuitenland
+            }
+          }
+        }
+      }
+    }
+
+    message RelevanteInkomstengegevensPartnerVolgensUwv { // QName RelevanteInkomstengegevensPartnerVolgensUwv
+      repeated Inkomstenverhouding inkomstenverhouding = 1; // QName Inkomstenverhouding
+
+      message Inkomstenverhouding { // QName Inkomstenverhouding
+        AdministratieveEenheid administratieve_eenheid = 1; // QName AdministratieveEenheid
+        repeated InkomstenperiodeType inkomstenperiode = 2; // QName Inkomstenperiode
+        repeated InkomstenopgaveType inkomstenopgave = 3; // QName Inkomstenopgave
+
+        message AdministratieveEenheid { // QName AdministratieveEenheid
+          string naam_administratieve_eenheid = 1; // QName NaamAdministratieveEenheid
+          string loonheffingennr = 2; // QName Loonheffingennr
+        }
+      }
+    }
+
+    message Beslagobject { // QName Beslagobject
+      string cd_srt_ikv = 1; // QName CdSrtIkv
+      string volgorde_beslag = 2; // QName VolgordeBeslag
+    }
+
+    message MeeInBerekeningInkomsten { // QName MeeInBerekeningInkomsten
+      string dat_b_indicatieperiode = 1; // QName DatBIndicatieperiode
+      string dat_e_indicatieperiode = 2; // QName DatEIndicatieperiode
+      StandaardBedrType bedr_belastbaar_jaarinkomen = 3; // QName BedrBelastbaarJaarinkomen
+      StandaardBedrType bedr_netto_maandinkomen = 4; // QName BedrNettoMaandinkomen
+      repeated InkomstenopgaveType inkomstenopgave = 5; // QName Inkomstenopgave
+    }
+  }
+}
+
+message InkomstenopgaveType {
+  string dat_b_iko = 1; // QName DatBIko
+  string dat_e_iko = 2; // QName DatEIko
+  StandaardBedrType bedr_loon_lb_premie_volksverz = 3; // QName BedrLoonLbPremieVolksverz
+  StandaardBedrType bedr_ingehouden_lb_premie_volksverz = 4; // QName BedrIngehoudenLbPremieVolksverz
+  StandaardBedrType bedr_vakantietoeslag = 5; // QName BedrVakantietoeslag
+  StandaardBedrType bedr_opgb_recht_vakantietoeslag = 6; // QName BedrOpgbRechtVakantietoeslag
+  StandaardBedrType bedr_extra_prd_salaris = 7; // QName BedrExtraPrdSalaris
+  StandaardBedrType bedr_opgb_recht_extra_prd_salaris = 8; // QName BedrOpgbRechtExtraPrdSalaris
+  StandaardBedrType bedr_ingehouden_bijdrage_zvw = 9; // QName BedrIngehoudenBijdrageZvw
+}
+
+message InkomstenperiodeType {
+  string dat_b_ikp = 1; // QName DatBIkp
+  string dat_e_ikp = 2; // QName DatEIkp
+  string cd_srt_ikv = 3; // QName CdSrtIkv
+}
+
+message MeldingType {
+  string code = 1; // QName Code
+  string tekst = 2; // QName Tekst
+  repeated string detail = 3; // QName Detail
+  BronType bron = 4; // QName Bron
+}
+
+message StandaardBedrType {
+  string cd_munteenheid = 1; // QName CdMunteenheid
+  string cd_positief_negatief = 2; // QName CdPositiefNegatief
+  string waarde_bedr = 3; // QName WaardeBedr
+  string cd_periode_eenheid_geldigheid_bedr = 4; // QName CdPeriodeEenheidGeldigheidBedr
+}
+
+message StraatadresBrpType {
+  string postcd = 1; // QName Postcd
+  string woonplaatsnaam = 2; // QName Woonplaatsnaam
+  string straatnaam = 3; // QName Straatnaam
+  string huisnr = 4; // QName Huisnr
+  string huisletter = 5; // QName Huisletter
+  string huisnrtoevoeging = 6; // QName Huisnrtoevoeging
+  string aanduiding_bij_huisnr = 7; // QName AanduidingBijHuisnr
+}

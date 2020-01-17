@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.codegen.wi.suwiml</groupId>
+        <artifactId>wi-suwiml</artifactId>
+        <version>0.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>wi-suwiml-stax-bvvinitberekeningbeslaglegger-v0100</artifactId>
+    <name>${project.artifactId}</name>
+    <url>http://bkwi.nl/bind-proto-transformer</url>
+    <description>Protobuf transformers for transforming SuwiML messages from XML to Protobuf</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.codegen.wi.suwiml</groupId>
+            <artifactId>wi-suwiml-stax-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.codegen.wi.suwiml</groupId>
+            <artifactId>wi-suwiml-proto-bvvinitberekeningbeslaglegger-v0100</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-api</artifactId>
+            <version>1.2.22</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-impl</artifactId>
+            <version>1.2.22</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
